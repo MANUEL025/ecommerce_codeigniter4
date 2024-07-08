@@ -24,7 +24,15 @@ class CreateProductosTable extends Migration
                 'type' => 'DECIMAL',
                 'constraint' => '10,2'
             ],
-            'imagen' => [
+            'productimage1' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255'
+            ],
+            'productimage2' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255'
+            ],
+            'productimage3' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255'
             ],
