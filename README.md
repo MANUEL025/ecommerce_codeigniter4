@@ -1,68 +1,122 @@
-# CodeIgniter 4 Application Starter
+# Tienda Online Construhogar
 
-## What is CodeIgniter?
+Este proyecto es una tienda online para **Construhogar**. Permite a los usuarios navegar y ver productos sin iniciar sesión, y solo requiere iniciar sesión cuando se desea agregar productos al carrito o realizar una compra. Además, incluye un panel administrativo para la gestión de productos, usuarios y categorías.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## Características
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+- Navegación de productos sin necesidad de iniciar sesión
+- Carrito de compras que requiere autenticación para agregar o eliminar productos
+- Panel administrativo con autenticación para gestionar productos, usuarios y categorías
+- Búsqueda de productos
+- Gestión de imágenes de productos
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## Tecnologías Utilizadas
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+- PHP
+- CodeIgniter 4
+- Bootstrap 4
+- MySQL
 
-## Installation & updates
+## Requisitos Previos
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+- PHP 7.4 o superior
+- Composer
+- MySQL
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+## Instalación
 
-## Setup
+1. Clona el repositorio:
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+    ```bash
+    git clone https://github.com/MANUEL025/ecommerce_codeigniter4.git
+    ```
 
-## Important Change with index.php
+2. Navega al directorio del proyecto:
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+    ```bash
+    cd ecommerce_codeigniter4
+    ```
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+3. Instala las dependencias de Composer:
 
-**Please** read the user guide for a better explanation of how CI4 works!
+    ```bash
+    composer install
+    ```
 
-## Repository Management
+4. Configura tu archivo `.env` con los detalles de tu base de datos. Renombra el archivo `env` a `.env` y modifica las siguientes líneas:
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+    ```env
+    database.default.hostname = localhost
+    database.default.database = construhogar
+    database.default.username = tu_usuario
+    database.default.password = tu_contraseña
+    database.default.DBDriver = MySQLi
+    ```
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+5. Ejecuta las migraciones para crear las tablas necesarias en la base de datos:
 
-## Server Requirements
+    ```bash
+    php spark migrate
+    ```
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+6. Si es necesario, carga los datos iniciales:
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+    ```bash
+    php spark db:seed InitialSeeder
+    ```
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+7. Inicia el servidor de desarrollo:
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+    ```bash
+    php spark serve
+    ```
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+8. Accede a la aplicación en tu navegador:
+
+    ```
+    http://localhost:8080
+    ```
+
+## Estructura del Proyecto
+
+- `app/Config/Routes.php` - Configuración de rutas
+- `app/Controllers/` - Controladores para manejar la lógica del negocio
+- `app/Models/` - Modelos para interactuar con la base de datos
+- `app/Views/` - Vistas para la presentación de la interfaz de usuario
+- `public/` - Archivos públicos como CSS, JS, imágenes
+
+## Uso del Panel Administrativo
+
+Para acceder al panel administrativo, inicia sesión con una cuenta de administrador y navega a:
+http://localhost:8080/admin/dashboard
+siempre y cuando te hayas logueado con rol de administrador de lo contrario no te dejara acceder a la ruta ya que esta protegida y requieres permisos.
+
+
+## Capturas de Pantalla
+
+![image](https://github.com/MANUEL025/ecommerce_codeigniter4/assets/131418423/c5340fa8-d931-4bfa-9446-6dfe98b01655)
+
+![image](https://github.com/MANUEL025/ecommerce_codeigniter4/assets/131418423/e63b751a-a863-4449-aae8-2e75ab083164)
+
+Panel de administracion.
+![image](https://github.com/MANUEL025/ecommerce_codeigniter4/assets/131418423/9b3ad9b0-8c82-4c3e-9f99-82b29408231a)
+![image](https://github.com/MANUEL025/ecommerce_codeigniter4/assets/131418423/d513ebb5-1c58-4db4-8433-76fbe1c12961)
+
+
+
+
+## Contribución
+
+Si deseas contribuir a este proyecto, por favor sigue estos pasos:
+
+1. Haz un fork del repositorio
+2. Crea una rama para tus cambios (`git checkout -b feature/nueva-feature`)
+3. Realiza tus cambios y haz commit (`git commit -am 'Agrega nueva feature'`)
+4. Sube tus cambios (`git push origin feature/nueva-feature`)
+5. Abre un Pull Request
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+
+
