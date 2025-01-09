@@ -56,14 +56,14 @@
 <div class="hm-page-block bg-fondo">
     <div class="container">
         <div class="header-title" data-aos="fade-up">
-            <h1>Productos populares</h1>
+            <h1>Productos Populares</h1>
         </div>
 
         <ul class="hm-tabs" data-aos="fade-up">
             <li class="hm-tab-link">Porcelanatos</li>
-            <li class="hm-tab-link">Panel adhesivo</li>
+            <li class="hm-tab-link">Panel Adhesivo</li>
             <li class="hm-tab-link">Techos</li>
-            <li class="hm-tab-link ative">En oferta</li>
+            <li class="hm-tab-link ative">En Oferta</li>
         </ul>
 
         <div class="tabs-content" data-aos="fade-up">
@@ -148,7 +148,7 @@
                     </div>
                     <div class="p-info">
                         <a href="/productos">
-                            <h3>Panel de relieve Beach</h3>
+                            <h3>Panel de Relieve Beach</h3>
                         </a>
                         <div class="precio">
                             <span>$35000</span>
@@ -164,7 +164,7 @@
                     </div>
                     <div class="p-info">
                         <a href="/productos">
-                            <h3>Panel 3D negro</h3>
+                            <h3>Panel 3D Negro</h3>
                         </a>
                         <div class="precio">
                             <span>$128000</span>
